@@ -1,0 +1,67 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: recommendationservice
+  name: recommendationservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recommendationservice
+  template:
+    metadata:
+      labels:
+        app: recommendationservice
+    spec:
+      containers:
+      - image: gcr.io/google-samples/microservices-demo/recommendationservice:v0.8.0
+        name: recommendationservice
+        env:
+          - name: PORT
+            value: "8080"
+          - name: PRODUCT_CATALOG_SERVICE_ADDR
+            value: "productcatalogservice:3550"
+          - name: DISABLE_PROFILER
+            value: "1"
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+              - ALL
+        resources:
+          limits:
+            cpu: 200m
+            memory: 450Mi
+          requests:
+            cpu: 100m
+            memory: 220Mi
+        readinessProbe:
+          initialDelaySeconds: 20
+          periodSeconds: 15
+          grpc:
+            port: 8080
+        livenessProbe:
+          initialDelaySeconds: 20
+          periodSeconds: 15
+          grpc:
+            port: 8080
+        ports:
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: recommendationservice
+spec:
+  selector:
+    app: recommendationservice
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
