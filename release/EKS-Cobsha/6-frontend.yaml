@@ -16,7 +16,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/frontend:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/boutique:v1.0.0
         name: frontend
         env:
           - name: PORT

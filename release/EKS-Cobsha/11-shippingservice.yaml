@@ -16,7 +16,7 @@ spec:
         app: shippingservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/shippingservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/shippingservice:v1.0.0
         name: shippingservice
         env:
           - name: PORT

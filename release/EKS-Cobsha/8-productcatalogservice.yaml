@@ -16,7 +16,7 @@ spec:
         app: productcatalogservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/productcatalogservice:v1.0.0
         name: productcatalogservice
         env:
           - name: PORT

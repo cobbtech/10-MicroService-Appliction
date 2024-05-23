@@ -16,7 +16,7 @@ spec:
         app: checkoutservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/checkoutservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/checkoutservice:v1.0.0
         name: cartservice
         env:
           - name: PORT

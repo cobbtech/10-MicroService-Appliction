@@ -16,7 +16,7 @@ spec:
         app: emailservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/emailservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/emailservice:v1.0.0
         name: server
         env:
           - name: PORT

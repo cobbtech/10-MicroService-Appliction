@@ -16,7 +16,7 @@ spec:
         app: recommendationservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/recommendationservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/recommendationservice:v1.0.0
         name: recommendationservice
         env:
           - name: PORT

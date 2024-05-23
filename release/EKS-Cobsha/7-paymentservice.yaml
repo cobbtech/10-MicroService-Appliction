@@ -16,7 +16,7 @@ spec:
         app: paymentservice
     spec:
       containers:
-      - image: gcr.io/google-samples/microservices-demo/paymentservice:v0.8.0
+      - image: 339712722453.dkr.ecr.us-east-1.amazonaws.com/paymentservice:v1.0.0
         name: paymentservice
         env:
           - name: PORT
